@@ -45,9 +45,6 @@ public class Program {
             in.nextLine();
             p1.getListaItem().add(new ItemPedido(quantProduto, new Produto(nomeProduto, precoProduto)));
         }
-        System.out.println(p1.resumoPedido());
-        
-        
-        
+        System.out.println(p1.resumoPedido());    
     }
 }

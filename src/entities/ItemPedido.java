@@ -35,4 +35,11 @@ public class ItemPedido {
     public Double subTotal(){
         return getProduto().getPreco() * getQuantidade();
     }
+    
+    public String toString(){
+        return getProduto().getNome() + ", R$" +
+                String.format("%.2f", getProduto().getPreco()) + ", Quantidade: " +
+                getQuantidade() + ", Subtotal: R$" +
+                String.format("%.2f", subTotal());
+    }
 }

@@ -72,21 +72,15 @@ public class Pedido {
     public String resumoPedido(){
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
         StringBuilder sb = new StringBuilder();
-        sb.append("Resumo do pedido:\n");
+        sb.append("\nResumo do pedido:\n");
         sb.append("Data e hora do pedido: ").append(getData());        
         sb.append("\nStatus do pedido: ").append(getStatusPedido());
-        sb.append("\nCliente: ");
-        sb.append(getCliente().getNome()).append(" ");
-        sb.append(sdf.format(getCliente().getDataNascimento()));
-        sb.append(" - ").append(getCliente().getEmail());
+        sb.append("\n").append(getCliente().toString());
         sb.append("\nItens do pedido:\n");
         for(ItemPedido item: listaItem){            
-            sb.append(item.getProduto().getNome()).append(", ");
-            sb.append("R$").append(item.getProduto().getPreco()).append(", ");
-            sb.append("Quantidade: ").append(item.getQuantidade()).append(", ");
-            sb.append("Subtotal: R$").append(item.subTotal()).append("\n");
+            sb.append(item.toString()).append("\n");
         }
-        sb.append("Preço total: R$").append(totalPedido());
+        sb.append("\nPreço total: R$").append(String.format("%.2f", totalPedido()));
         return sb.toString();
     }
 }

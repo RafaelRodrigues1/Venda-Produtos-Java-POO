@@ -1,11 +1,15 @@
 package entities;
 
+
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
  * @author RafaelRodrigues1
  */
 public class Cliente {
+    
+    private static SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy");
     
     private String nome;
     private String email;
@@ -42,5 +46,12 @@ public class Cliente {
 
     public void setDataNascimento(Date dataNascimento) {
         this.dataNascimento = dataNascimento;
-    }   
+    }
+    
+    @Override
+    public String toString(){
+        return "Cliente: " + getNome() +
+                " (" + df.format(getDataNascimento()) + ") - " +
+                getEmail();                
+    }
 }
